@@ -6,7 +6,14 @@ export type User = {
 };
 
 export enum Roles {
-    ADMIN = "Admin",
-    EXPERT = "Expert",
-    USER = "User"
+    ADMIN = "ADMIN",
+    EXPERT = "EXPERT",
+    USER = "USER"
 }
+
+export const defaultUser : User = {
+    id:0,
+    email:'',
+    password:'',
+    role:Roles.USER
+};

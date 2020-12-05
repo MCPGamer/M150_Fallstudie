@@ -12,13 +12,13 @@ export type Request = {
 };
 
 export enum RequestLevel {
-    NORMAL = "Normal",
-    PRO = "Pro",
-    EXPRESSPRO = "Express Pro"
+    NORMAL = "NORMAL",
+    PRO = "PRO",
+    EXPRESSPRO = "EXPRESSPRO"
 }
 
 export enum RequestStatus {
-    OPEN = "Open",
-    INPROGRESS= "In Progress",
-    DONE = "Done"
+    OPEN = "OPEN",
+    INPROGRESS= "INPROGRESS",
+    DONE = "DONE"
 }

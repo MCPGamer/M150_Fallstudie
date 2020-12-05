@@ -1,0 +1,18 @@
+div{
+  padding:2px
+}
+
+.login-box {
+  width: 30%;
+  padding: 30px;
+}
+
+.login-view{
+  width: 100%;
+  display: inline-flex;
+  align-content: center;
+}
+
+.join-error{
+  color:red;
+}
