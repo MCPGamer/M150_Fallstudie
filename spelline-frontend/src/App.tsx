@@ -1,6 +1,7 @@
 import React from 'react';
 import {AppBar, Button, makeStyles, Toolbar, Typography} from '@material-ui/core';
 import './App.css';
+import {UploadView} from './containers/UploadView';
 
 function App() {
   return (
@@ -16,13 +17,7 @@ function App() {
           </AppBar>
         </header>
         <body>
-        <div className='upload-box'>
-          <form method="post" action="#" id="#">
-            <div className="files">
-              <input type="file" className="form-control" />
-            </div>
-          </form>
-        </div>
+          <UploadView />
         </body>
       </div>
   );
