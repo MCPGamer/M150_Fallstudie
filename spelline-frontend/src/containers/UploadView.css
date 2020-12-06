@@ -61,9 +61,22 @@
 .upload-box {
   width: 30%;
   padding: 30px;
+  flex: 0 0 auto;
 }
 
-.upload-view{
+.upload-view {
   width: 100%;
-  display: inline-flex;
+  display: flex;
+  align-content: center;
+}
+
+.file-info {
+  width: 30%;
+  padding: 30px;
+  flex: 0 0 auto;
+}
+
+.title{
+  width: 100%;
+  text-align: center;
 }

@@ -5,11 +5,12 @@ div{
 .login-box {
   width: 30%;
   padding: 30px;
+  margin: 0 auto;
 }
 
 .login-view{
   width: 100%;
-  display: inline-flex;
+  display: flex;
   align-content: center;
 }
 

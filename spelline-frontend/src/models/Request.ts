@@ -1,4 +1,4 @@
-import {User} from './User';
+import {defaultUser, User} from './User';
 
 export type Request = {
     id: number,
@@ -22,3 +22,14 @@ export enum RequestStatus {
     INPROGRESS= "INPROGRESS",
     DONE = "DONE"
 }
+
+export const defaultRequest: Request = {
+    id: 0,
+    file: [],
+    wordcount: 0,
+    price: 0,
+    level: RequestLevel.NORMAL,
+    status: RequestStatus.OPEN,
+    user: defaultUser,
+    expert: defaultUser
+};
