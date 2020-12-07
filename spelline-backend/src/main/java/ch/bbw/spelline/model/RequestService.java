@@ -12,4 +12,9 @@ public class RequestService {
 	public Request getRequest(int id) {
 		return repository.findById(id).get();
 	}
+	
+	public Request insertRequest(Request request) {
+		repository.save(request);
+		return request;
+	}
 }

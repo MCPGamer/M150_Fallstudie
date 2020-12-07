@@ -2,13 +2,13 @@ import {defaultUser, User} from './User';
 
 export type Request = {
     id: number,
-    file: [],
+    file?: File,
     wordcount: number,
     price: number,
     level: RequestLevel,
     status: RequestStatus,
-    user: User,
-    expert: User;
+    user?: User,
+    expert?: User;
 };
 
 export enum RequestLevel {
@@ -25,11 +25,8 @@ export enum RequestStatus {
 
 export const defaultRequest: Request = {
     id: 0,
-    file: [],
     wordcount: 0,
     price: 0,
     level: RequestLevel.NORMAL,
-    status: RequestStatus.OPEN,
-    user: defaultUser,
-    expert: defaultUser
+    status: RequestStatus.OPEN
 };

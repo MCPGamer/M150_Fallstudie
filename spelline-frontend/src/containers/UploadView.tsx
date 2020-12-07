@@ -2,21 +2,26 @@ import React, {useState} from 'react';
 import './UploadView.css';
 import {User} from '../models/User';
 import {defaultRequest, Request, RequestLevel} from '../models/Request';
+import {Button} from '@material-ui/core';
 
 type Props = {
   user: User
+  onPost: (request: Request) => Request;
 };
 
 export const UploadView: React.FC<Props> = (props) => {
   const [request, setRequest] = useState<Request>(defaultRequest);
-  const [file, setFile] = useState<string>('');
+  const [file, setFile] = useState<File>();
   const [wordcount, setWordcount] = useState<number>(0);
   const [level, setLevel] = useState<RequestLevel>(RequestLevel.NORMAL);
   const [price, setPrice] = useState<number>(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'file') {
-      setFile(e.target.value);
+      if(e.target.files !== null){
+        setFile(e.target.files[0]);
+        console.log(e.target.files[0])
+      }
       /*
       * setWordcount()
       * setPrice()
@@ -30,6 +35,17 @@ export const UploadView: React.FC<Props> = (props) => {
     }
   };
 
+  const handlePost = (paymentMethod: string) => {
+    // TODO: IMPLEMENT PAYMENT WITH SPECIFIED METHOD BEFORE DOING THIS
+
+    request.file = file;
+    request.wordcount = wordcount;
+    request.price = price;
+    request.level = level;
+    request.user = props.user;
+    setRequest(props.onPost(request));
+  };
+
   return (
       <div>
         <h2 className="title">File Upload</h2>
@@ -38,8 +54,7 @@ export const UploadView: React.FC<Props> = (props) => {
             <div className='upload-box'>
               <div className="files">
                 <input accept="application/pdf" type="file" name='file' className="form-control"
-                       onChange={handleChange}
-                       value={file}/>
+                       onChange={handleChange}/>
               </div>
             </div>
             <div className="file-info">
@@ -78,7 +93,10 @@ export const UploadView: React.FC<Props> = (props) => {
                 </tr>
                 <tr>
                   <td>Pay with:</td>
-                  <td>lol</td>
+                  <td>
+                    <Button variant="outlined" onClick={() => handlePost("Paypal")} disabled={file === null}>Paypal</Button>
+                    <Button variant="outlined" onClick={() => handlePost("Creditcard")} disabled={file === null}>Creditcard</Button>
+                  </td>
                 </tr>
                 </tbody>
               </table>
