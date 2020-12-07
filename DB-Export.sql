@@ -31,20 +31,14 @@ CREATE TABLE `request` (
   `price` double NOT NULL,
   `level` enum('NORMAL','PRO','EXPRESSPRO') COLLATE latin1_general_ci NOT NULL,
   `status` enum('OPEN','INPROGRESS','DONE') COLLATE latin1_general_ci NOT NULL,
-  `userFk` int(11) NOT NULL,
-  `expertFk` int(11) NOT NULL,
   `expert_fk` int(11) DEFAULT NULL,
   `user_fk` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `writerFk_idx` (`userFk`),
-  KEY `reviewerFk_idx` (`expertFk`),
   KEY `FKcv5ofiih02nubq56hwamvk2m2` (`user_fk`),
   KEY `FKijxwo494e8bd0r5ffyqqsshwi` (`expert_fk`),
   CONSTRAINT `FKcv5ofiih02nubq56hwamvk2m2` FOREIGN KEY (`user_fk`) REFERENCES `user` (`id`),
-  CONSTRAINT `FKijxwo494e8bd0r5ffyqqsshwi` FOREIGN KEY (`expert_fk`) REFERENCES `user` (`id`),
-  CONSTRAINT `reviewerFk` FOREIGN KEY (`expertFk`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `writerFk` FOREIGN KEY (`userFk`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FKijxwo494e8bd0r5ffyqqsshwi` FOREIGN KEY (`expert_fk`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -94,4 +88,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-07  8:46:32
+-- Dump completed on 2020-12-07  9:22:56

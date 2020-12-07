@@ -20,7 +20,6 @@ export const UploadView: React.FC<Props> = (props) => {
     if (e.target.name === 'file') {
       if(e.target.files !== null){
         setFile(e.target.files[0]);
-        console.log(e.target.files[0])
       }
       /*
       * setWordcount()
@@ -37,7 +36,6 @@ export const UploadView: React.FC<Props> = (props) => {
 
   const handlePost = (paymentMethod: string) => {
     // TODO: IMPLEMENT PAYMENT WITH SPECIFIED METHOD BEFORE DOING THIS
-
     request.file = file;
     request.wordcount = wordcount;
     request.price = price;

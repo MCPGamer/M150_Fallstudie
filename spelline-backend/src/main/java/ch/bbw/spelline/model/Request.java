@@ -9,9 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.lang.Nullable;
 
 @Entity
 public class Request {
@@ -26,10 +24,10 @@ public class Request {
 	@Enumerated(EnumType.STRING)
 	private RequestStatus status;
 	@ManyToOne
-	@JoinColumn(name = "userFk")
+	@JoinColumn(name = "user_Fk")
 	private User user;
 	@ManyToOne
-	@JoinColumn(name = "expertFk")
+	@JoinColumn(name = "expert_Fk")
 	private User expert;
 
 	public int getId() {
